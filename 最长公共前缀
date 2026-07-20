@@ -1,0 +1,12 @@
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        rt = ""
+        # zip(*strs) 会把 ["flower", "flow", "flight"] 变成：
+        # ('f','f','f'), ('l','l','l'), ('o','o','i')...
+        for chars in zip(*strs):
+            # set(chars) 会把元组变成集合，如果有不同字符，集合长度 > 1
+            if len(set(chars)) == 1:
+                rt += chars[0]
+            else:
+                break
+        return rt
